@@ -16,30 +16,62 @@ const validarCantidad = (cantidad) => {
   }
 };
 
-const comprarProductos = () => {
+const precioDelProducto = (producto) => {
+  switch (producto) {
+    case "vestido":
+      return 5000;
+    case "remera":
+      return 2000;
+    case "pantalón":
+      return 3000;
+    default:
+      0;
+  }
+};
+
+const pedirProducto = () => {
   let productoValido = false;
   let producto = "";
 
-  while (productoValido === false) {
+  while (!productoValido) {
     producto = prompt("Ingrese el producto que desea comprar: vestido, remera, pantalón");
     productoValido = validarProducto(producto);
-    if (productoValido === false) {
+    if (!productoValido) {
       alert("El producto ingresado no es válido");
     }
   }
 
+  return producto;
+};
+
+const pedirCantidad = () => {
   let cantidadValida = false;
   let cantidad = 0;
 
-  while (cantidadValida === false) {
+  while (!cantidadValida) {
     cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar"));
     cantidadValida = validarCantidad(cantidad);
-    if (cantidadValida === false) {
+    if (!cantidadValida) {
       alert("La cantidad ingresada no es válida");
     }
   }
+  return cantidad;
 };
 
-precioTotal = comprarProductos();
+const comprarProductos = () => {
+  let total = 0;
+  let seguirComprando = true;
+
+  while (seguirComprando) {
+    const producto = pedirProducto();
+    const cantidad = pedirCantidad();
+    total += precioDelProducto(producto) * cantidad;
+    seguirComprando = confirm("¿Desea seguir comprando?");
+  }
+
+  return total;
+};
+
+const precioTotal = comprarProductos();
 
 alert("El precio total es: " + precioTotal);
