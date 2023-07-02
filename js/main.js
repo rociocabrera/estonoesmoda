@@ -1,7 +1,7 @@
-alert("Wellcome to Esto no es Moda");
+alert("Wellcome to Esto no es Moda 🙂");
 
 const validateProduct = (product) => {
-  if (product === "vestido" || product === "remera" || product === "pantalón") {
+  if (product === "dress" || product === "shirt" || product === "pants") {
     return true;
   } else {
     return false;
@@ -18,11 +18,11 @@ const validateQuantity = (quantity) => {
 
 const priceProduct = (product) => {
   switch (product) {
-    case "vestido":
+    case "dress":
       return 5000;
-    case "remera":
+    case "shirt":
       return 2000;
-    case "pantalón":
+    case "pants":
       return 3000;
     default:
       0;
@@ -34,7 +34,7 @@ const orderProduct = () => {
   let product = "";
 
   while (!validProduct) {
-    product = prompt("Enter the product you want to buy: vestido, remera, pantalón");
+    product = prompt("Enter the product you want to buy: dress, shirt, pants");
     validProduct = validateProduct(product);
     if (!validProduct) {
       alert("The entered product is not valid");
