@@ -1,23 +1,23 @@
-alert("Bienvedidx a Esto no es Moda");
+alert("Wellcome to Esto no es Moda");
 
-const validarProducto = (producto) => {
-  if (producto === "vestido" || producto === "remera" || producto === "pantalón") {
+const validateProduct = (product) => {
+  if (product === "vestido" || product === "remera" || product === "pantalón") {
     return true;
   } else {
     return false;
   }
 };
 
-const validarCantidad = (cantidad) => {
-  if (!isNaN(cantidad) && cantidad > 0) {
+const validateQuantity = (quantity) => {
+  if (!isNaN(quantity) && quantity > 0) {
     return true;
   } else {
     return false;
   }
 };
 
-const precioDelProducto = (producto) => {
-  switch (producto) {
+const priceProduct = (product) => {
+  switch (product) {
     case "vestido":
       return 5000;
     case "remera":
@@ -29,49 +29,49 @@ const precioDelProducto = (producto) => {
   }
 };
 
-const pedirProducto = () => {
-  let productoValido = false;
-  let producto = "";
+const orderProduct = () => {
+  let validProduct = false;
+  let product = "";
 
-  while (!productoValido) {
-    producto = prompt("Ingrese el producto que desea comprar: vestido, remera, pantalón");
-    productoValido = validarProducto(producto);
-    if (!productoValido) {
-      alert("El producto ingresado no es válido");
+  while (!validProduct) {
+    product = prompt("Enter the product you want to buy: vestido, remera, pantalón");
+    validProduct = validateProduct(product);
+    if (!validProduct) {
+      alert("The entered product is not valid");
     }
   }
 
-  return producto;
+  return product;
 };
 
-const pedirCantidad = () => {
-  let cantidadValida = false;
-  let cantidad = 0;
+const orderQuantity = () => {
+  let validQuantity = false;
+  let quantity = 0;
 
-  while (!cantidadValida) {
-    cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar"));
-    cantidadValida = validarCantidad(cantidad);
-    if (!cantidadValida) {
-      alert("La cantidad ingresada no es válida");
+  while (!validQuantity) {
+    quantity = parseInt(prompt("Enter the amount you want to buy"));
+    validQuantity = validateQuantity(quantity);
+    if (!validQuantity) {
+      alert("The amount entered is invalid");
     }
   }
-  return cantidad;
+  return quantity;
 };
 
-const comprarProductos = () => {
+const buyProducts = () => {
   let total = 0;
-  let seguirComprando = true;
+  let keepBuying = true;
 
-  while (seguirComprando) {
-    const producto = pedirProducto();
-    const cantidad = pedirCantidad();
-    total += precioDelProducto(producto) * cantidad;
-    seguirComprando = confirm("¿Desea seguir comprando?");
+  while (keepBuying) {
+    const product = orderProduct();
+    const quantity = orderQuantity();
+    total += priceProduct(product) * quantity;
+    keepBuying = confirm("Do you want to continue shopping?");
   }
 
   return total;
 };
 
-const precioTotal = comprarProductos();
+const totalPrice = buyProducts();
 
-alert("El precio total es: " + precioTotal);
+alert("The total price is: " + totalPrice);
