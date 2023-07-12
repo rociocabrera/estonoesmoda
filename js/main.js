@@ -1,32 +1,34 @@
-alert("Wellcome to Esto no es Moda 🙂");
+const availableProducts = [
+  { name: "dress", price: 5000 },
+  { name: "shirt", price: 2000 },
+  { name: "pants", price: 3000 },
+];
 
-const validateProduct = (product) => {
-  if (product === "dress" || product === "shirt" || product === "pants") {
-    return true;
-  } else {
-    return false;
+alert("Welcome to Esto no es Moda 🙂");
+
+const validateProduct = (productName) => {
+  for (let i = 0; i < availableProducts.length; i++) {
+    const product = availableProducts[i];
+
+    if (product.name === productName) {
+      return true;
+    }
   }
+  return false;
 };
 
 const validateQuantity = (quantity) => {
-  if (!isNaN(quantity) && quantity > 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return !isNaN(quantity) && quantity > 0;
 };
 
-const priceProduct = (product) => {
-  switch (product) {
-    case "dress":
-      return 5000;
-    case "shirt":
-      return 2000;
-    case "pants":
-      return 3000;
-    default:
-      0;
+const priceProduct = (productName) => {
+  for (let i = 0; i < availableProducts.length; i++) {
+    const product = availableProducts[i];
+    if (product.name === productName) {
+      return product.price;
+    }
   }
+  return 0;
 };
 
 const orderProduct = () => {
@@ -74,4 +76,4 @@ const buyProducts = () => {
 
 const totalPrice = buyProducts();
 
-alert("The total price is: " + totalPrice);
+alert("The total price is: $" + totalPrice);
