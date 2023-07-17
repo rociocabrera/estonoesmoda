@@ -6,41 +6,28 @@ const availableProducts = [
 
 alert("Welcome to Esto no es Moda 🙂");
 
-const validateProduct = (productName) => {
-  for (let i = 0; i < availableProducts.length; i++) {
-    const product = availableProducts[i];
+const findProductByName = (productName) => {
+  return availableProducts.find((product) => product.name === productName) || null;
+};
 
-    if (product.name === productName) {
-      return true;
-    }
-  }
-  return false;
+const validateProduct = (productName) => {
+  return findProductByName(productName) !== null;
 };
 
 const validateQuantity = (quantity) => {
   return !isNaN(quantity) && quantity > 0;
 };
 
-const priceProduct = (productName) => {
-  for (let i = 0; i < availableProducts.length; i++) {
-    const product = availableProducts[i];
-    if (product.name === productName) {
-      return product.price;
-    }
-  }
-  return 0;
+const findProductPrice = (productName) => {
+  const product = findProductByName(productName);
+  return product.price || 0;
 };
 
 const getProductNames = () => {
-  let productNames = "";
-  for (let i = 0; i < availableProducts.length; i++) {
-    const product = availableProducts[i];
-    productNames += product.name + ", ";
-  }
-  return productNames;
+  return availableProducts.map((product) => product.name).join(", ");
 };
 
-const orderProduct = () => {
+const orderProduct = (productCart) => {
   let validProduct = false;
   let product = "";
 
@@ -48,7 +35,7 @@ const orderProduct = () => {
     product = prompt("Enter the product you want to buy: " + getProductNames());
     validProduct = validateProduct(product);
     if (!validProduct) {
-      alert("The entered product is not valid");
+      alert("The product entered is invalid");
     }
   }
 
@@ -82,6 +69,7 @@ const showCartItems = (productCart) => {
   let items = "The items in your cart are: \n \n";
 
   console.log(productCart);
+
   for (let i = 0; i < productCart.length; i++) {
     const item = productCart[i];
 
@@ -103,14 +91,26 @@ const buyProducts = () => {
   let keepBuying = true;
 
   while (keepBuying) {
-    const product = orderProduct();
+    const product = orderProduct(productCart);
     const quantity = orderQuantity();
 
-    const itemToAdd = { product, quantity, subtotal: priceProduct(product) * quantity };
-    productCart.push(itemToAdd);
+    const existingProduct = productCart.find((item) => item.product === product);
+
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+      console.log(existingProduct);
+
+      existingProduct.subtotal = findProductPrice(product) * existingProduct.quantity;
+      console.log(existingProduct);
+    } else {
+      const subtotal = findProductPrice(product) * quantity;
+      console.log(subtotal);
+
+      productCart.push({ product, quantity, subtotal });
+    }
+
     keepBuying = confirm("Do you want to continue shopping?");
   }
-
   return productCart;
 };
 
@@ -120,3 +120,4 @@ const totalString = "\n \n" + "The total of your purchase is: $" + total;
 const cartOutput = showCartItems(productCart) + totalString;
 
 alert(cartOutput);
+alert("Thanks for your purchase, see you soon!💖");
