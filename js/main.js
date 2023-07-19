@@ -1,13 +1,7 @@
-const availableProducts = [
-  { name: "dress", price: 5000 },
-  { name: "shirt", price: 2000 },
-  { name: "pants", price: 3000 },
-];
-
 alert("Welcome to Esto no es Moda 🙂");
 
 const findProductByName = (productName) => {
-  return availableProducts.find((product) => product.name === productName) || null;
+  return availableProducts.find((product) => product.name.toLowerCase() === productName.toLowerCase()) || null;
 };
 
 const validateProduct = (productName) => {
@@ -27,7 +21,7 @@ const getProductNames = () => {
   return availableProducts.map((product) => product.name).join(", ");
 };
 
-const orderProduct = (productCart) => {
+const orderProduct = () => {
   let validProduct = false;
   let product = "";
 
@@ -57,31 +51,25 @@ const orderQuantity = () => {
 };
 
 const calculateCartTotal = (productCart) => {
-  let total = 0;
-  for (let i = 0; i < productCart.length; i++) {
-    const item = productCart[i];
-    total += item.subtotal;
-  }
-  return total;
+  return productCart.reduce((total, item) => total + item.subtotal, 0);
 };
 
 const showCartItems = (productCart) => {
   let items = "The items in your cart are: \n \n";
 
-  console.log(productCart);
-
-  for (let i = 0; i < productCart.length; i++) {
-    const item = productCart[i];
-
+  productCart.forEach((item, i) => {
     const words = item.product.split(" ");
-    const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+    const capitalizedWords = words.map((word) => {
+      const firstLetter = word[0].toUpperCase();
+      const restOfWord = word.slice(1).toLowerCase();
+      return firstLetter + restOfWord;
+    });
+
     const capitalizedProduct = capitalizedWords.join(" ");
 
-    items += item.quantity + " " + capitalizedProduct + " - Subtotal: $" + item.subtotal;
-    if (i < productCart.length - 1) {
-      items += "\n";
-    }
-  }
+    items += item.quantity + " " + capitalizedProduct + " - subtotal: $" + item.subtotal;
+    items += "\n";
+  });
   return items;
 };
 
@@ -94,19 +82,14 @@ const buyProducts = () => {
     const product = orderProduct(productCart);
     const quantity = orderQuantity();
 
-    const existingProduct = productCart.find((item) => item.product === product);
+    const existingProduct = productCart.find((item) => item.product === product.toLocaleLowerCase());
 
     if (existingProduct) {
       existingProduct.quantity += quantity;
-      console.log(existingProduct);
-
       existingProduct.subtotal = findProductPrice(product) * existingProduct.quantity;
-      console.log(existingProduct);
     } else {
       const subtotal = findProductPrice(product) * quantity;
-      console.log(subtotal);
-
-      productCart.push({ product, quantity, subtotal });
+      productCart.push({ product: product.toLowerCase(), quantity, subtotal });
     }
 
     keepBuying = confirm("Do you want to continue shopping?");
@@ -116,7 +99,7 @@ const buyProducts = () => {
 
 const productCart = buyProducts();
 const total = calculateCartTotal(productCart);
-const totalString = "\n \n" + "The total of your purchase is: $" + total;
+const totalString = "\n" + "The total of your purchase is: $" + total;
 const cartOutput = showCartItems(productCart) + totalString;
 
 alert(cartOutput);
