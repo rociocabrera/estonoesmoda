@@ -1,7 +1,13 @@
 alert("Welcome to Esto no es Moda 🙂");
 
+const availableProducts = [
+  { name: "dress", price: 5000 },
+  { name: "shirt", price: 2000 },
+  { name: "pants", price: 3000 },
+];
+
 const findProductByName = (productName) => {
-  return availableProducts.find((product) => product.name.toLowerCase() === productName.toLowerCase()) || null;
+  return availableProducts.find((product) => product.name.toLowerCase() === productName.toLowerCase());
 };
 
 const validateProduct = (productName) => {

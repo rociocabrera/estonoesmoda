@@ -3,10 +3,214 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desafío: PreEntrega1 - Cabrera. E-commerce</title>
+    <title>Esto no es moda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png" />
+    <meta name="descrption" content="vintage e-commerce where you can find clothes with style" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
   <body>
-    <script src="js/stock.js"></script>
+    <header>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand logo" href="#"><img src="/assets/html/logo.png" alt="logo" /></a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+          <div class="cart-icon" navbar-toggler bg-white me-3 type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="item-count">0</span>
+          </div>
+          <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome to Esto No es Moda</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav bg-white justify-content-end flex-grow-1 pe-3">
+                <div class="alert alert-info" data-component="cart.empty-message">The shopping cart is empty</div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="products">
+        <div class="title">
+          <span><h5>Shirts</h5></span>
+        </div>
+        <div class="shirt-product">
+          <div class="card" style="width: 18rem">
+            <img src="/assets/shirt/remera-mariposas.JPG" class="card-img-top" alt="shirt" />
+            <div class="card-body">
+              <h5 class="card-title">Camisa Butterfly</h5>
+              <p class="card-text">Embrace nature's beauty with this rosy-hued shirt featuring graceful fluttering butterflies.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/shirt/remera-rosa.jpg" class="card-img-top" alt="shirt" />
+            <div class="card-body">
+              <h5 class="card-title">Remera Rosita BB</h5>
+              <p class="card-text">Timeless charm meets vintage allure in this faded pink tee, offer comfort and versatility.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/shirt/remera-translucida.jpg" class="card-img-top" alt="shirt" />
+            <div class="card-body">
+              <h5 class="card-title">Remera Negra Translúcida</h5>
+              <p class="card-text">Embody modern elegance with this captivating tee, adding allure and sophistication to your style.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="title">
+          <span><h5>Pants</h5></span>
+        </div>
+        <div class="pant-product">
+          <div class="card" style="width: 18rem">
+            <img src="/assets/pant/pantalon-bordo.jpg" class="card-img-top" alt="pant" />
+            <div class="card-body">
+              <h5 class="card-title">Pantalón Bordeaux</h5>
+              <p class="card-text">Elevate your style with these rich burgundy trousers, perfect for adding sophistication to any outfit.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/pant/pantalon-cuadrille.jpg" class="card-img-top" alt="pant" />
+            <div class="card-body">
+              <h5 class="card-title">Pantalón Brown Square</h5>
+              <p class="card-text">Embrace moder-classic fusion with these deep brown pants featuring a subtle square pattern.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/pant/pantalon-jean.jpg" class="card-img-top" alt="pant" />
+            <div class="card-body">
+              <h5 class="card-title">Pantalón Blue Jeans</h5>
+              <p class="card-text">Your new go-to pair of premium denim jeans, offer a comfortable and flattering fit for versatile.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="title">
+          <span><h5>Dresses</h5></span>
+        </div>
+        <div class="dress-product">
+          <div class="card" style="width: 18rem">
+            <img src="/assets/dress/vestidocuadrille.webp" class="card-img-top" alt="dress" />
+            <div class="card-body">
+              <h5 class="card-title">Vestido Grey Vintage</h5>
+              <p class="card-text">Step into timeless elegance with this vintage-inspired grey dress, perfect for special occasions.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/dress/vestido-negro.jpg" class="card-img-top" alt="dress" />
+            <div class="card-body">
+              <h5 class="card-title">Vestido Black Scorpion</h5>
+              <p class="card-text">Make a bold statement with this alluring black dress featuring daring scorpion-inspired patterns.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="/assets/dress/vestido-rosa.jpg" class="card-img-top" alt="dress" />
+            <div class="card-body">
+              <h5 class="card-title">Vestido Barbie Pink</h5>
+              <p class="card-text">Embrace joy and playfulness with this vibrant pink dress, flattering and versatile for any event.</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <a href="#" class="btn btn-success">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
     <script src="js/main.js"></script>
   </body>
 </html>
