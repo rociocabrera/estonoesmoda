@@ -122,22 +122,18 @@ const renderProducts = () => {
     <img src="/assets/products/${product.img}" class="card-img-top" alt="shirt" />
     <div class="card-body">
       <h5 class="card-title">${product.title}</h5>
+      <h5 class="card-title">$${product.price}</h5>
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">
-          Options
+          Quantity
         </label>
-        <select class="form-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
+        <input type="number" min="0" class="form-control" placeholder="0" />
       </div>
       <a href="#" class="btn btn-success">
         Add to cart
       </a>
     </div>
-  </div>;`;
+  </div>`;
     productsSection.appendChild(card);
   });
 };
