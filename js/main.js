@@ -1,9 +1,9 @@
-alert("Welcome to Esto no es Moda 🙂");
+// alert("Welcome to Esto no es Moda 🙂");
 
 const availableProducts = [
-  { name: "dress", price: 5000 },
-  { name: "shirt", price: 2000 },
-  { name: "pants", price: 3000 },
+  { name: "dress", title: "Vestido Cuadrillé Grey", price: 5000, img: "vestidocuadrille.webp" },
+  { name: "shirt", title: "Camisa Butterfly", price: 2000, img: "remera-mariposas.jpg" },
+  { name: "pants", title: "Pantalón Bordeaux", price: 3000, img: "pantalon-bordeaux.jpg" },
 ];
 
 const findProductByName = (productName) => {
@@ -11,7 +11,7 @@ const findProductByName = (productName) => {
 };
 
 const validateProduct = (productName) => {
-  return findProductByName(productName) !== null;
+  return !!findProductByName(productName);
 };
 
 const validateQuantity = (quantity) => {
@@ -103,10 +103,46 @@ const buyProducts = () => {
   return productCart;
 };
 
-const productCart = buyProducts();
-const total = calculateCartTotal(productCart);
-const totalString = "\n" + "The total of your purchase is: $" + total;
-const cartOutput = showCartItems(productCart) + totalString;
+// const productCart = buyProducts();
+// const total = calculateCartTotal(productCart);
+// const totalString = "\n" + "The total of your purchase is: $" + total;
+// const cartOutput = showCartItems(productCart) + totalString;
 
-alert(cartOutput);
-alert("Thanks for your purchase, see you soon!💖");
+// alert(cartOutput);
+// alert("Thanks for your purchase, see you soon!💖");
+
+const renderProducts = () => {
+  const productsSection = document.getElementById("products");
+
+  availableProducts.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "col-lg-4 col-md-6 col-sm-12 ";
+
+    card.innerHTML = `<div class="card" style="width: 18rem">
+    <img src="/assets/products/${product.img}" class="card-img-top" alt="shirt" />
+    <div class="card-body">
+      <h5 class="card-title">${product.title}</h5>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">
+          Options
+        </label>
+        <select class="form-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <a href="#" class="btn btn-success">
+        Add to cart
+      </a>
+    </div>
+  </div>;`;
+    productsSection.appendChild(card);
+  });
+};
+
+window.onload = () => {
+  console.log("The page has been loaded");
+  renderProducts();
+};
