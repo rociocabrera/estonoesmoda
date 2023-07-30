@@ -48,6 +48,9 @@ header .navbar {
 .fa-shopping-cart {
   font-size: 2rem;
   color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .item-count {
   padding-right: 25px;
@@ -61,6 +64,51 @@ header .navbar {
   font-size: 0.8rem;
 }
 
+.cart-container {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.image-cart img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.products-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+div h2 {
+  color: rgb(33, 102, 75);
+  font-size: 14px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+}
+.total-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px;
+}
+.total-container h2 {
+  color: rgb(33, 102, 75);
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+}
 /* MAIN */
 
 .main {

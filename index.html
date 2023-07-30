@@ -16,10 +16,6 @@
       <nav class="navbar">
         <div class="container-fluid">
           <a class="navbar-brand logo" href="#"><img src="/assets/html/logo.png" alt="logo" /></a>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
           <div class="cart-icon" navbar-toggler bg-white me-3 type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <i class="fa fa-shopping-cart"></i>
             <span class="item-count">0</span>
@@ -30,9 +26,12 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav bg-white justify-content-end flex-grow-1 pe-3">
-                <div class="alert alert-info" data-component="cart.empty-message">The shopping cart is empty</div>
-              </ul>
+              <div class="alert alert-info" id="cart-empty" data-component="cart.empty-message">The shopping cart is empty</div>
+              <div id="cart-items"></div>
+              <div class="total-container">
+                <h2 id="cart-total-label">Total: $</h2>
+                <h2 id="cart-total">0</h2>
+              </div>
             </div>
           </div>
         </div>
