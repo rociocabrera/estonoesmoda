@@ -9,8 +9,12 @@ const validateQuantity = (quantity) => {
   return !isNaN(quantity) && quantity > 0;
 };
 
-const calculateCartTotal = (productCart) => {
+const calculateCartTotal = () => {
   return productCart.reduce((total, item) => total + item.subtotal, 0);
+};
+
+const calculateCartCount = () => {
+  return productCart.reduce((count, item) => count + item.quantity, 0);
 };
 
 const findProductByName = (productName) => {
@@ -61,6 +65,10 @@ const renderCart = () => {
   const total = calculateCartTotal(productCart);
   const cartTotal = document.getElementById("cart-total");
   cartTotal.innerHTML = total;
+
+  const count = calculateCartCount(productCart);
+  const cartCount = document.getElementById("cart-count");
+  cartCount.innerHTML = count;
 };
 
 const buyProduct = (productName) => {

@@ -52,7 +52,7 @@ header .navbar {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.item-count {
+#cart-count {
   padding-right: 25px;
   position: absolute;
   top: -10px;
