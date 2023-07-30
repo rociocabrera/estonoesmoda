@@ -3,7 +3,7 @@ const availableProducts = [
   { name: "shirt", title: "Camisa Butterfly", price: 2000, img: "remera-mariposas.jpg" },
   { name: "pants", title: "Pantalón Bordeaux", price: 3000, img: "pantalon-bordeaux.jpg" },
 ];
-const productCart = [];
+let productCart = [];
 
 const validateQuantity = (quantity) => {
   return !isNaN(quantity) && quantity > 0;
@@ -71,6 +71,16 @@ const renderCart = () => {
   cartCount.innerHTML = count;
 };
 
+const saveCart = () => {
+  const cartString = JSON.stringify(productCart);
+  localStorage.setItem("cart", cartString);
+};
+
+const loadCart = () => {
+  const cartString = localStorage.getItem("cart") || "[]";
+  productCart = JSON.parse(cartString);
+};
+
 const buyProduct = (productName) => {
   const product = findProductByName(productName);
 
@@ -83,7 +93,7 @@ const buyProduct = (productName) => {
   }
 
   addToCart(product, quantity);
-
+  saveCart();
   renderCart();
 };
 
@@ -114,7 +124,15 @@ const renderProducts = () => {
   });
 };
 
+const finishPurchase = () => {
+  productCart = [];
+  saveCart();
+  renderCart();
+};
+
 window.onload = () => {
   // console.log("The page has been loaded");
   renderProducts();
+  loadCart();
+  renderCart();
 };

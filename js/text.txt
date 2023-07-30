@@ -320,12 +320,16 @@ window.addEventListener("DOMContentLoaded", () => {
 // El stock.js es un array de objetos que contiene los productos disponibles en el local.
 // Lo pasé a un archivo .json para poder usarlo en el localStorage
 
+
+PARA GUARDAR
 //Stringify: convierte un objeto en un string
 const productsString = JSON.stringify(availableProducts);
 
 //setItem: agrega un elemento al localStorage
 localStorage.setItem("products", productsString);
 
+
+PARA LEER
 //getItem: obtiene un elemento del localStorage
 const storedProductsString = localStorage.getItem("products");
 

@@ -23,7 +23,7 @@
           <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
               <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome to Esto No es Moda</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
               <div class="alert alert-info" id="cart-empty" data-component="cart.empty-message">The shopping cart is empty</div>
@@ -32,6 +32,7 @@
                 <h2 id="cart-total-label">Total: $</h2>
                 <h2 id="cart-total">0</h2>
               </div>
+              <div><button onclick="finishPurchase()" type="button" class="btn btn-success">Finalizar compra</button></div>
             </div>
           </div>
         </div>
