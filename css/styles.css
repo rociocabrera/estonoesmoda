@@ -65,16 +65,15 @@ header .navbar {
 }
 
 .cart-container {
-  width: 300px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin-bottom: 10%;
+  justify-content: flex-start;
 }
 .image-cart img {
   width: 100px;
-  height: 100px;
+  height: 150px;
   margin: 10px;
   border-radius: 5px;
 }
@@ -86,29 +85,48 @@ header .navbar {
 }
 div h2 {
   color: rgb(33, 102, 75);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  margin: 10px;
+  padding: 2px;
 }
-.total-container {
+
+div button {
+  margin-top: 6px;
+}
+
+#total-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
   align-items: flex-start;
-  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.total-container h2 {
+#total-container h2 {
   color: rgb(33, 102, 75);
   font-size: 22px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  margin: 10px;
 }
+#finish-purchase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#finish-purchase button {
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* MAIN */
 
 .main {
@@ -129,21 +147,31 @@ div h2 {
   width: 100%;
 } */
 
+.row {
+  margin: 0 10px;
+  width: auto;
+  justify-content: space-between;
+}
+
 .title {
+  --bs--gutter-x: 0 !important;
+  --bs--gutter-y: 0 !important;
+
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   border-radius: 10px;
-  margin: 10px;
+  padding: 10px 0;
+  margin-top: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
 }
 
 h5 {
   color: rgb(33, 102, 75);
-  font-size: 1.5rem;
+  font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -179,6 +207,11 @@ h5 {
   letter-spacing: 2px;
   text-align: center;
   margin: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
 }
 
 /* FOOTER */

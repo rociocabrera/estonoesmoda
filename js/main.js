@@ -1,7 +1,7 @@
 const availableProducts = [
-  { name: "dress", title: "Vestido Cuadrillé Grey", price: 5000, img: "vestidocuadrille.webp" },
-  { name: "shirt", title: "Camisa Butterfly", price: 2000, img: "remera-mariposas.jpg" },
-  { name: "pants", title: "Pantalón Bordeaux", price: 3000, img: "pantalon-bordeaux.jpg" },
+  { name: "dress", title: "Dress Grey Square ", price: 5000, img: "vestidocuadrille.webp" },
+  { name: "shirt", title: "Shirt Butterfly", price: 2000, img: "remera-mariposas.jpg" },
+  { name: "pants", title: "Pant Bordeaux", price: 3000, img: "pantalon-bordeaux.jpg" },
 ];
 let productCart = [];
 
@@ -33,12 +33,29 @@ const addToCart = (product, quantity) => {
   return productCart;
 };
 
+const removeFromCart = (productName) => {
+  const product = findProductByName(productName);
+  productCart = productCart.filter((item) => item.product.name !== product.name);
+
+  saveCart();
+  renderCart();
+};
+
 const renderCart = () => {
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = "";
 
+  const finishPurchaseButton = document.getElementById("finish-purchase");
+  const totalContainer = document.getElementById("total-container");
+
   if (productCart.length > 0) {
     document.getElementById("cart-empty").style.display = "none";
+    finishPurchaseButton.style.display = "flex";
+    totalContainer.style.display = "flex";
+  } else {
+    document.getElementById("cart-empty").style.display = "flex";
+    finishPurchaseButton.style.display = "none";
+    totalContainer.style.display = "none";
   }
 
   productCart.forEach((item) => {
@@ -56,8 +73,12 @@ const renderCart = () => {
             <h2>Quantity: ${item.quantity}</h2>
           </div>
           <div>
+            <h2>Price: $${item.product.price}</h2>
+          </div>
+          <div>
             <h2>Subtotal: $${item.subtotal}</h2>
           </div>
+          <div><button onclick="removeFromCart('${item.product.name}')" class="btn btn-success">Remove</button></div>
         </div>`;
     cartItems.appendChild(cartItem);
   });
@@ -79,6 +100,17 @@ const saveCart = () => {
 const loadCart = () => {
   const cartString = localStorage.getItem("cart") || "[]";
   productCart = JSON.parse(cartString);
+
+  const finishPurchaseButton = document.getElementById("finish-purchase");
+  const totalContainer = document.getElementById("total-container");
+
+  if (productCart.length <= 0) {
+    finishPurchaseButton.style.display = "none";
+    totalContainer.style.display = "none";
+  } else if (productCart.length > 0) {
+    finishPurchaseButton.style.display = "flex";
+    totalContainer.style.display = "flex";
+  }
 };
 
 const buyProduct = (productName) => {
@@ -95,6 +127,8 @@ const buyProduct = (productName) => {
   addToCart(product, quantity);
   saveCart();
   renderCart();
+
+  quantityInput.value = "0";
 };
 
 const renderProducts = () => {
@@ -102,7 +136,7 @@ const renderProducts = () => {
 
   availableProducts.forEach((product) => {
     const card = document.createElement("div");
-    card.className = "col-lg-4 col-md-6 col-sm-12 ";
+    card.className = "col-lg-4 col-md-6 col-sm-12";
 
     card.innerHTML = `<div class="card">
         <img src="/assets/products/${product.img}" class="card-img-top" alt="shirt" />
