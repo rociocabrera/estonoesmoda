@@ -116,7 +116,7 @@ const renderCart = () => {
     const { id, img, title, price } = product;
 
     cartItem.innerHTML = `<div class="image-cart">
-          <img src="/assets/products/${img}" alt="" />
+          <img src="assets/products/${img}" alt="" />
         </div>
         <div class="products-container">
           <div>
@@ -191,7 +191,7 @@ const renderProducts = () => {
     card.className = "col-lg-4 col-md-6 col-sm-12";
 
     card.innerHTML = `<div class="card">
-        <img src="/assets/products/${img}" class="card-img-top" alt="shirt" />
+        <img src="assets/products/${img}" class="card-img-top" alt="shirt" />
         <div class="card-body">
           <h5 class="card-title">${title}</h5>
           <h5 class="card-title">$${price}</h5>
