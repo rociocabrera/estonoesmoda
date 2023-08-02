@@ -1,0 +1,240 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgb(33, 102, 75);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+.container-fluid {
+  justify-content: space-around !important;
+}
+header .navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px;
+  border: 2px solid #fff;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.fa-shopping-cart {
+  font-size: 2rem;
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#cart-count {
+  padding-right: 25px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #fff;
+  color: rgb(33, 102, 75);
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10%;
+  justify-content: flex-start;
+}
+.image-cart img {
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.products-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+div h2 {
+  color: rgb(33, 102, 75);
+  font-size: 12px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 2px;
+}
+
+div button {
+  margin-top: 6px;
+}
+
+#total-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#total-container h2 {
+  color: rgb(33, 102, 75);
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+#finish-purchase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#finish-purchase button {
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+/* #products {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+} */
+
+.row {
+  margin: 0 10px;
+  width: auto;
+  justify-content: space-between;
+}
+
+.title {
+  --bs--gutter-x: 0 !important;
+  --bs--gutter-y: 0 !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+h5 {
+  color: rgb(33, 102, 75);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.card img {
+  width: 70%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px;
+}
+.card h3 {
+  color: rgb(33, 102, 75);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ALERTS */
+
+.swal-wide {
+  width: 300px !important;
+  height: 400px !important;
+  margin-right: 30px !important;
+}
+
+.swal-wide-error {
+  width: 400px !important;
+  height: 350px !important;
+}
+
+.swal2-title .swal-wide-error.text-center {
+  font-size: 1.5rem !important;
+  font-weight: 200 !important;
+  text-transform: capitalize !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin: 10px !important;
+  color: rgb(33, 102, 75) !important;
+}
+
+/* FOOTER */
