@@ -1,0 +1,22 @@
+/* ALERTS */
+
+.swal-wide {
+  width: 300px !important;
+  height: 400px !important;
+  margin-right: 30px !important;
+}
+
+.swal-wide-error {
+  width: 400px !important;
+  height: 350px !important;
+}
+
+.swal2-title .swal-wide-error.text-center {
+  font-size: 1.5rem !important;
+  font-weight: 200 !important;
+  text-transform: capitalize !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin: 10px !important;
+  color: rgb(33, 102, 75) !important;
+}
