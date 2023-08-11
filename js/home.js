@@ -3,16 +3,16 @@ const renderProducts = () => {
     const card = document.createElement("div");
     card.className = "col-lg-4 col-md-6 col-sm-12";
 
-    card.innerHTML = `<div class="card">
-        <img src="assets/products/${img}" class="card-img-top" alt="shirt" />
-        <div class="card-body">
+    card.innerHTML = `<div class="card card-product">
+        <img src="assets/products/${img}" class="card-img-top" alt="clothes" />
+        <div class="card-body card-product-body">
           <h5 class="card-title">${title}</h5>
           <h5 class="card-title">$${price}</h5>
           <div class="input-group mb-3">
             <label class="input-group-text">
               Quantity
             </label>
-            <input id="${id}-quantity" type="number" min="0" class="form-control" placeholder="0" />
+            <input id="${id}-quantity" type="number" min="1" class="form-control" value="1" />
           </div>
           <button onclick="buyProduct('${id}')" class="btn btn-success">
             Add to cart
@@ -53,5 +53,5 @@ const buyProduct = (productId) => {
   saveCart();
   renderCart();
 
-  quantityInput.value = "";
+  quantityInput.value = "1";
 };

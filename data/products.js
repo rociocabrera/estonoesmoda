@@ -1,11 +1,46 @@
-const availableProducts = [
-  { id: "grey-dress", title: "Grey Square Dress ", price: 5000, img: "dressgreysquare.webp" },
-  { id: "scorpion-dress", title: "Scorpion Dress", price: 6000, img: "scorpion-dress.jpg" },
-  { id: "spring-dress", title: "Spring Dress", price: 7000, img: "spring-dress.jpg" },
-  { id: "butterfly-shirt", title: "Butterfly Shirt", price: 2000, img: "shirt-butterfly.jpg" },
-  { id: "black-shirt", title: "Black Shirt", price: 3000, img: "black-shirt.jpg" },
-  { id: "pink-shirt", title: "Bby Pink Shirt", price: 4000, img: "bby-pink-shirt.jpg" },
-  { id: "bordeaux-pant", title: "Bordeaux Pant", price: 3000, img: "pant-bordeaux.jpg" },
-  { id: "brown-pant", title: "Brown Square Pant", price: 4000, img: "brown-pant-square.jpg" },
-  { id: "blue-pant", title: "Blue Jean", price: 5000, img: "bluejeans.jpg" },
-];
+let availableProducts = [];
+
+const getProducts = async () => {
+  try {
+    const response = await fetch("https://mocki.io/v1/40b47b1d-e851-4b6c-a022-dbbad067cca2");
+    const products = await response.json();
+    availableProducts = products;
+    return products;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Test: Aplying async with fetch + then and catch
+//
+// const getProductsAsync = () => {
+//   return fetch("https://mocki.io/v1/40b47b1d-e851-4b6c-a022-dbbad067cca2")
+//     .then((response) => response.json())
+//     .catch((error) => console.log(error));
+// };
+
+// Test: Aplying async with setTimeout
+//
+// const getProductsPromise = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       getProductsAsync().then((products) => {
+//         console.log(products);
+//         availableProducts = products;
+//         resolve(products);
+//       });
+//     }, 5000);
+//   });
+// };
+
+// Test: Aplying async with await + setTimeout
+// const getProductsPromiseAwait = async () => {
+//   const products = await getProducts();
+
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       availableProducts = products;
+//       resolve(products);
+//     }, 5000);
+//   });
+// };
