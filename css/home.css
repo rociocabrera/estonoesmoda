@@ -83,7 +83,7 @@ h5 {
   margin: 10px;
 }
 
-.card {
+.card-product {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,14 +96,14 @@ h5 {
   transition: all 0.3s ease-in-out;
 }
 
-.card img {
+.card-product img {
   width: 70%;
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
   margin: 10px;
 }
-.card h3 {
+.card-product h3 {
   color: rgb(33, 102, 75);
   font-size: 1.5rem;
   font-weight: 500;
@@ -113,7 +113,94 @@ h5 {
   margin: 10px;
 }
 
-.card-body {
+.card-product-body {
   display: flex;
   flex-direction: column;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: rgb(33, 102, 75);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  row-gap: 10px;
+}
+.card-footer {
+  border: none !important;
+  background-color: transparent !important;
+}
+.card-title-footer {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer__ffqq-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 15px;
+}
+
+.footer__ffqq-list li {
+  list-style: none;
+  margin: 5px 0;
+}
+.footer__ffqq-list li a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+  text-decoration: none;
+}
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.footer__icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.footer__copy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.footer__copy {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 10px;
+  text-decoration: none;
 }
