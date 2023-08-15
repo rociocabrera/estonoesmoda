@@ -80,8 +80,14 @@ div button {
   width: 100%;
 }
 
-#finish-purchase button {
+#finish-purchase button,
+#clear-cart button {
   padding: 10px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.clear-button {
+  background-color: #e5989b;
+  color: #fff;
+  border: none;
 }

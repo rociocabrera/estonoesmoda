@@ -2,7 +2,6 @@ const showQuantityValidationAlert = () => {
   Swal.fire({
     icon: "error",
     title: "Please enter a valid quantity",
-    // text: "You must enter a number greater than 0",
     customClass: "swal-wide-error",
     color: "#000",
     background: "#fff",
@@ -25,7 +24,6 @@ const showRemoveConfirmation = (productId) => {
     showClass: {
       popup: "animate__animated animate__fadeInDown",
     },
-    // text: "You won't be able to revert this!",
     color: "#000",
     background: "#fff",
     position: "top-end",
@@ -61,4 +59,40 @@ const showPurchaseSuccess = () => {
     backgroundColor: "linear-gradient(to right, #e5989b, #e5989b)",
     stopOnFocus: true,
   }).showToast();
+};
+
+const removeAllCartConfirmation = () => {
+  const swalParams = {
+    icon: "warning",
+    title: "Are you sure to revome all products?",
+    customClass: {
+      title: "swal2-title",
+    },
+    showClass: {
+      popup: "animate__animated animate__fadeInDown",
+    },
+    color: "#000",
+    background: "#fff",
+    position: "top-end",
+    customClass: "swal-wide",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete all!",
+  };
+
+  Swal.fire(swalParams).then((result) => {
+    if (result.isConfirmed) {
+      clearCart(productCart);
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your products has been deleted.",
+        icon: "success",
+        color: "#000",
+        background: "#fff",
+        position: "top-end",
+        customClass: "swal-wide",
+      });
+    }
+  });
 };
