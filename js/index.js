@@ -5,6 +5,7 @@ window.onload = async () => {
   renderCart();
 };
 
+
 // other way to do it:
 //
 // getProductsPromise().then((products) => {
@@ -12,3 +13,5 @@ window.onload = async () => {
 //   loadCart();
 //   renderCart();
 // });
+
+ 

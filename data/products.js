@@ -2,7 +2,7 @@ let availableProducts = [];
 
 const getProducts = async () => {
   try {
-    const response = await fetch("https://mocki.io/v1/40b47b1d-e851-4b6c-a022-dbbad067cca2");
+    const response = await fetch("https://rociocabrera.github.io/api_estonoesmoda/db.json");
     const products = await response.json();
     availableProducts = products;
     return products;
